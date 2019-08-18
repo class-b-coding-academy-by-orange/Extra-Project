@@ -14,6 +14,15 @@ class Form extends Component {
 
     }
 
+    checkValidity  = () => {
+        const name = this.nameInput.value;
+        const email = this.emailInput.value;
+        const phone = this.phoneInput.value;
+        const url = this.urlInput.value;
+
+        console.log(name, email, phone, url);
+    }
+
     render() {
         return (
             <div className="row">
@@ -21,22 +30,22 @@ class Form extends Component {
                 <form>
                     <h3>
                         Name: 
-                        <input rel={name => this.nameInput = name} type="text" placeholder="Enter your name" />
+                        <input ref={name => this.nameInput = name} name="name" type="text" placeholder="Enter your name" />
                     </h3>
                     <h3>
                         Email: 
-                        <input rel={email => this.emailInput = email} type="email" placeholder="Enter your email" />
+                        <input ref={email => this.emailInput = email} type="email" placeholder="Enter your email" />
                     </h3>
                     <h3>
                         Phone: 
-                        <input rel={phone => this.phoneInput = phone} type="phone" placeholder="Enter your phone number" />
+                        <input ref={phone => this.phoneInput = phone} type="phone" placeholder="Enter your phone number" />
                     </h3>
                     <h3>
                         Blog URL: 
-                        <input rel={url => this.urlInput = url} type="url" placeholder="Enter your blog URL" />
+                        <input ref={url => this.urlInput = url} type="url" placeholder="Enter your blog URL" />
                     </h3>
                     <div className="small-6 small-centered text-center columns">
-                        <a href="#" className="button success expand round text-center">Verify</a>
+                        <a onClick={this.checkValidity} href="#" className="button success expand round text-center">Verify</a>
                     </div>
                 </form>
             </div>);

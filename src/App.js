@@ -4,14 +4,16 @@ import Message from './components/Message'
 
 class App extends Component {
     state = {
-        isValid: true
+        isValid: false
     }
+
     isComplete = (v) => {
         this.setState({
             isValid: v
-        })
+        });
     }
     render() {
+        console.log(this.state.isValid);
         return (<div>
             <Form changeToMessage={this.isComplete}></Form>
             <Message showMessage={this.state.isValid}></Message>

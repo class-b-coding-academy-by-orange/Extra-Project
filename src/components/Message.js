@@ -1,9 +1,14 @@
 import React from 'react';
 
-const Message = () => {
+
+const Message = (props) => {
     return (
         <div>
-            <h3 className="text-center message"></h3>
+            <h3 className="text-center message">
+                {
+                    props.showMessage ? 'Complete form' : 'incomplete form'
+                }
+            </h3>
         </div>
     )
 }

@@ -13,19 +13,88 @@ class Form extends Component {
 
     }
     clicke=()=>{
+
         const name=document.getElementById("name").value;
 
-        console.log(name)
+        console.log(/^[a-zA-Z][a-zA-Z \s]{3,30}$/.test(name))
+
+        if(name===/^[a-zA-Z][a-zA-Z \s]{3,30}$/.test(name)){
+          this.setState({
+              isNameValid: true,
+          })
+            
+        }else{
+            this.setState({
+                isNameValid: false,
+            })
+
+        }
+
+       
 
         const email=document.getElementById("email").value;
 
-        console.log(email)
+
+        console.log(/^[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{1,4}\S*$/.test(email))
+        if(email===/^[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{1,4}\S$/.test(email)){
+            this.setState({
+                isEmailValid: true,
+            })
+              
+          }else{
+              this.setState({
+                  isEmailValid: false,
+              })
+  
+          }
 
        const phone= document.getElementById("phone").value;
-       console.log(phone)
+       if(phone===/^[A-Za-z0-9._%+-]+@[a-z0-9.-\s]+\.[a-z]{1,4}\S$/.test
+        
+        
+        (phone)){
+            this.setState({
+                isPhoneValid: true,
+            })
+              
+          }else{
+              this.setState({
+                  isPhoneValid: false,
+              })
+  
+          }
+       console.log(/^[2-9]\d{9}$/.test(phone))
+
+     
 
        const blog=document.getElementById("url").value
-       console.log(blog)
+       console.log(/^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/.test(blog))
+
+      
+
+       if(blog===/^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/.test
+        
+        
+        (blog)){
+            this.setState({
+                isUrlValid: true,
+            })
+              
+          }else{
+              this.setState({
+                  isUrlValid: false,
+              })
+  
+          }
+
+          const { isEmailValid, isNameValid, isPhoneValid, isUrlValid} = this.state;
+
+if( isEmailValid && isNameValid && isPhoneValid && isUrlValid){
+   this.props.changeToMessage(true)
+}else{
+    this.props.changeToMessage(false)
+}
+
        
     }
 

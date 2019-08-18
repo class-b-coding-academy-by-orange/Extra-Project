@@ -26,7 +26,7 @@ class Form extends Component {
     checkName = async (e) =>
     {      
         let name = e.target.value;
-        let regex = /^[^\d]+$/
+        let regex =  /^[a-zA-Z ]{2,30}$/;
         let result = regex.test(name)
         console.log (result)
         await this.setState({isNameValid:result})
@@ -36,7 +36,7 @@ class Form extends Component {
     checkEmail = async (e) =>
     {  
         let name = e.target.value;
-        let regex = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])+(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/
+        let regex = /^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/
         let result = regex.test(name)
         console.log (result)
         await this.setState({isEmailValid:result})
